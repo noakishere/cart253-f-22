@@ -1,3 +1,11 @@
-# Template p5 project
+# Exercise 01
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+Create a program that
+
+- draws a red circle in the middle of the page ONLY if the mouse is pressed
+
+- draws a green circle in the left of the page ONLY if a key is pressed
+
+- if none are pressed, there are no shapes on the screen
+
+- After 3 mouse presses, the background should turn blue.
