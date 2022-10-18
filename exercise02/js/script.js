@@ -54,7 +54,17 @@ function setup() {
 /**
 Description of draw()
 */
-function draw() {}
+function draw() {
+	test();
+}
+
+function test() {
+	clear();
+	squareCounter = 0;
+	rowCounter = 0;
+	randomColorGenerator();
+	drawCheckerBoard();
+}
 
 /**
  * Each mouse pressed generates a new checkerboard and clears the one previous to it.
