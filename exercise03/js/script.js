@@ -1,6 +1,6 @@
 /**
 Loops exercise
-Author Kamyar
+Author Kamyar Karimi
 
 Create a piece of code that uses a function to
 draw targets on the screen using a for loop when
@@ -19,7 +19,9 @@ next target drawn
 
 "use strict";
 
+// max circle size
 const circleSize = 100;
+// initial number of circles. Subject to change according to mouse position
 let numberOfCircles = 4;
 
 /**
@@ -68,9 +70,6 @@ function checkMousePos() {
 		// upper left or lower right decreases the size
 		return false;
 	}
-
-	// // to ensure we always have the target format
-	// if (numberOfCircles <= 1) numberOfCircles = 2;
 }
 
 /**
@@ -80,7 +79,8 @@ function mouseClicked() {
 	if (checkMousePos()) numberOfCircles++;
 	else numberOfCircles--;
 
+	// // to ensure we always have the target format
 	if (numberOfCircles <= 1) numberOfCircles = 2;
-	// checkMousePos();
+
 	drawTarget();
 }
