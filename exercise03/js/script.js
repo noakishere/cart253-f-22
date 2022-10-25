@@ -1,35 +1,41 @@
 /**
-Title of Project
-Author Name
+Loops exercise
+Author Kamyar
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+Create a piece of code that uses a function to
+draw targets on the screen using a for loop when
+the mouse is clicked at the mouse position. The
+targets should alternate between two colours
+that are randomly selected with each new target.
+Use a different function to return a value to
+check the mouse position.
+
+If the mouse position
+in in the upper right or lower left, add a circle to
+the next target drawn. If the position is in the
+lower right or upper left, remove a circle in the
+next target drawn
 */
 
 "use strict";
 
-const circleSize = 75;
+const circleSize = 100;
+let numberOfCircles = 4;
 
 /**
-Description of preload
-*/
-function preload() {}
-
-/**
-Description of setup
-*/
+ * initial setup
+ */
 function setup() {
 	createCanvas(500, 500);
 	background(1, 1, 1);
-	// drawTarget();
 }
 
 /**
-Description of draw()
-*/
-function draw() {}
-
+ * Draws the targets according to the initial circleSize and the numberOfCircles
+ * that we want on our target.
+ */
 function drawTarget() {
+	// Randomization of the colors for each target
 	let color1 = {
 		r: random(255),
 		b: random(255),
@@ -41,26 +47,40 @@ function drawTarget() {
 		g: random(255),
 	};
 
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < numberOfCircles; i++) {
+		// every other color is different to make the target visible
 		if (i % 2 == 0) fill(color1.r, color1.b, color1.g);
 		else fill(color2.r, color2.b, color2.g);
 
-		circle(mouseX, mouseY, circleSize - 25 * i);
+		// circle's size is divided evenly according to the number of circles that we want
+		circle(mouseX, mouseY, circleSize - (circleSize / numberOfCircles) * i);
 	}
-
-	// fill(color1.r, color1.b, color1.g);
-	// circle(250, 250, 100);
-
-	// fill(color2.r, color2.b, color2.g);
-	// circle(250, 250, 75);
-
-	// fill(color1.r, color1.b, color1.g);
-	// circle(250, 250, 50);
-
-	// fill(color2.r, color2.b, color2.g);
-	// circle(250, 250, 25);
 }
 
+/**
+ * Checks mouseX and mouseY and modifies numberOfCircles accordingly
+ */
+function checkMousePos() {
+	// lower left or upper right condition adds a circle
+	if ((mouseX < 250 && mouseY > 250) || (mouseX > 250 && mouseY < 250)) {
+		return true;
+	} else {
+		// upper left or lower right decreases the size
+		return false;
+	}
+
+	// // to ensure we always have the target format
+	// if (numberOfCircles <= 1) numberOfCircles = 2;
+}
+
+/**
+ * Triggers every time mouse is clicked
+ */
 function mouseClicked() {
+	if (checkMousePos()) numberOfCircles++;
+	else numberOfCircles--;
+
+	if (numberOfCircles <= 1) numberOfCircles = 2;
+	// checkMousePos();
 	drawTarget();
 }
