@@ -10,11 +10,23 @@ Also hides overflow.
 **********************************************/
 
 body {
-  padding: 0;
-  margin: 0;
-  display: grid; /* Set up the grid and justify/align to center */
-  justify-content: center;
-  align-content: center;
-  height: 100vh; /* Body is the height of the viewport */
-  overflow: hidden; /* Hide anything that goes off the window size */
+	padding: 0;
+	margin: 0;
+	display: grid; /* Set up the grid and justify/align to center */
+	justify-content: center;
+	align-content: center;
+	height: 100vh; /* Body is the height of the viewport */
+	overflow: hidden; /* Hide anything that goes off the window size */
+	font-family: "Mukta", sans-serif;
+}
+
+.text-container {
+	color: white;
+	/* font-size: 22px; */
+}
+
+.myButton {
+	font-family: "Mukta", sans-serif;
+	color: rgb(180, 5, 5);
+	background-color: black;
 }
