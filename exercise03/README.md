@@ -1,4 +1,4 @@
-# Loops exercise
+# Functions exercise
 
 Create a piece of code that uses a function to
 draw targets on the screen using a for loop when

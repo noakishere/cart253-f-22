@@ -1,5 +1,5 @@
 /**
-Loops exercise
+Functions exercise
 Author Kamyar Karimi
 
 Create a piece of code that uses a function to
