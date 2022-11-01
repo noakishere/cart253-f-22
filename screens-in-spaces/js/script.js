@@ -2,8 +2,7 @@
 Screen in Space - intransigence
 Author: Kamyar Karimi
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+Made for the Screens in Spaces assignment. An exercise on our contemporary history of racism on the very same campus that we call ours.
 */
 
 "use strict";
@@ -216,8 +215,8 @@ let textArrays = [];
 let textCounter = 0;
 
 /**
-Description of preload
-*/
+ * Preloading the songs
+ */
 function preload() {
 	_mainSong = loadSound(mainSongAddress);
 	for (var i = 0; i < sounds.length; i++) {
@@ -240,27 +239,9 @@ function setup() {
 	startUpMenu();
 }
 
-let setupDone = false;
-
 /**
-Description of draw()
-*/
-function draw() {
-	// background("black");
-	// ruler();
-	// drawWindows();
-	// if (!setupDone) {
-	// 	pTextContainer = createP("").addClass("text-container");
-	// 	pTextContainer.position(500, 450, "fixed");
-	// 	createMyButton();
-	// 	setupDone = true;
-	// }
-	// for (var i = 0; i < cols; i++) {
-	// 	drawWindows(i * windowHeightGaps);
-	// }
-	// drawEyes();
-}
-
+ * Setup for the beginning
+ */
 function startUpMenu() {
 	startButton = createButton("intransigence").addClass("start-btn");
 	startButton.position(width / 2, height / 2);
@@ -271,15 +252,14 @@ function startUpMenu() {
 	_mainSong.loop();
 }
 
+/**
+ * Triggered once the start button is pressed.
+ */
 function startStory() {
 	pTextContainer = createP("").addClass("text-container");
 	pTextContainer.position(550, 550, "fixed");
 
 	drawWindows();
-
-	// for (var i = 0; i < cols; i++) {
-	// 	drawWindows(i * windowHeightGaps);
-	// }
 
 	createMyButton();
 	startButton.style("display", "none");
@@ -290,6 +270,7 @@ function startStory() {
  * variables.
  */
 function processNewText(newText) {
+	// Series of conditionals to react accordingly to each text object's properties
 	if (newText.nextLine && windowDrawCounter <= 17) {
 		print("HELLO");
 
@@ -312,7 +293,7 @@ function processNewText(newText) {
 	if (newText.finish == true) {
 		button.mousePressed(() => {
 			window.open(
-				"https://github.com/noakishere/cart253-f-22/blob/main/README.md",
+				"https://github.com/noakishere/cart253-f-22/blob/main/resources.md",
 				"_blank"
 			);
 		});
