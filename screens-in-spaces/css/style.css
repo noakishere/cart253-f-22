@@ -30,3 +30,7 @@ body {
 	color: rgb(180, 5, 5);
 	background-color: black;
 }
+
+.color-red {
+	color: red;
+}
