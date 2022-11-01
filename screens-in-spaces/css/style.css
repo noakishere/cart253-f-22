@@ -38,6 +38,10 @@ canvas {
 	letter-spacing: 2px;
 }
 
+.myButton:hover {
+	color: white;
+}
+
 .start-btn {
 	font-size: 22px;
 	font-family: "Mukta", sans-serif;

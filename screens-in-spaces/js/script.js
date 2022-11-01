@@ -118,7 +118,7 @@ let texts = [
 		newButtonText: "What happened next?",
 	},
 	{
-		text: "Students complaining about him were called <span class='color-red'>whiners</span>. Unhappy with their grades.",
+		text: "Students complaining about him were called <span class='color-red'>whiners</span> and just unhappy with their grades.",
 		newButtonText: "continue",
 		nextLine: true,
 	},
@@ -126,6 +126,78 @@ let texts = [
 		text: "The administration stalled the jury talks. They were hoping that the demands would die on their own. <br /> That their frustrations would turn into disappointment. <br />That their shouts would turn into <span class='color-red'>sighs</span>.",
 		nextLine: true,
 		newButtonText: "somethings never change...",
+		buttonShowUpSpeed: 1000,
+	},
+	{
+		text: "Over 400 students, in an act of manifestation against the institution's horrible decision making, occupied the university's computer lab. <br/>The <span class='color-red'>ninth floor</span>.",
+		newButtonText: "continue",
+	},
+	{
+		text: "take a look at it on your right side.",
+		nextLine: true,
+		buttonShowUpSpeed: 5000,
+		specialSound: 0,
+	},
+	{
+		text: "",
+		newButtonText: "I hear the protests were peaceful",
+		nextLine: true,
+	},
+	{
+		text: "",
+		newButtonText: "That the students only demanded justice.",
+		nextLine: true,
+	},
+	{
+		text: "",
+		buttonShowUpSpeed: 3000,
+		newButtonText: "right?",
+		nextLine: true,
+	},
+	{
+		text: "The police <span class='color-red'>raided</span> the lab. <br/> The university had enough of their <span class='color-red'>games</span>",
+		newButtonText: "continue",
+	},
+	{
+		text: "A fire broke down in the computer lab",
+		drawRedWindow: true,
+	},
+	{
+		text: "hundreds of people watching outside",
+	},
+	{
+		text: "and many chanted",
+	},
+	{
+		text: "burn n------, <span class='color-red'>burn.</span>",
+	},
+	{
+		text: "97 students were arrested. And once in custody, 87 of them were <span class='color-red'>divided</span> by their race. <br /> 38 black students taken out from the white crowd.",
+	},
+	{
+		text: "",
+		buttonShowUpSpeed: 1000,
+		newButtonText: "who started the fire?",
+	},
+	{
+		text: "no one knows",
+		newButtonText: "continue",
+	},
+	{
+		text: "right?",
+		newButtonText: "right",
+		buttonShowUpSpeed: 1000,
+	},
+	{
+		text: "",
+		newButtonText: "the end.",
+		buttonShowUpSpeed: 1000,
+	},
+	{
+		text: "this work was done thanks to the many documentations [1] of this horrible incident. <br /> And it is our <span class='color-red'>homework</span> to acknowledge the sacrifices that our previous peers made, on the very <span class='color-red'>same</span> grounds that we walk on.",
+		newButtonText: "[1] resources",
+		buttonShowUpSpeed: 1000,
+		finish: true,
 	},
 	{
 		text: "",
@@ -225,6 +297,19 @@ function processNewText(newText) {
 		playSpecialSound(newText.specialSound);
 	}
 
+	if (newText.drawRedWindow == true) {
+		drawRedWindow();
+	}
+
+	if (newText.finish == true) {
+		button.mousePressed(() => {
+			window.open(
+				"https://github.com/noakishere/cart253-f-22/blob/main/README.md",
+				"_blank"
+			);
+		});
+	}
+
 	updateText(newText.text, newText.buttonShowUpSpeed ?? undefined);
 }
 
@@ -253,6 +338,12 @@ function drawWindows(col = 0) {
 	}
 
 	windowDrawCounter++;
+}
+
+function drawRedWindow() {
+	fill("red");
+	drawWindows(30);
+	fill("white");
 }
 
 /**
