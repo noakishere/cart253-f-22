@@ -291,7 +291,7 @@ function processNewText(newText) {
 	if (newText.finish == true) {
 		button.mousePressed(() => {
 			window.open(
-				"https://github.com/noakishere/cart253-f-22/blob/main/resources.md",
+				"https://github.com/noakishere/cart253-f-22/blob/main/screens-in-spaces/resources.md",
 				"_blank"
 			);
 		});
