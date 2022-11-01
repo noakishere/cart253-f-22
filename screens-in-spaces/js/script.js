@@ -42,6 +42,7 @@ let specialSoundsAddress = [
 	"assets/sounds/special_sounds/viola01.mp3",
 	"assets/sounds/special_sounds/viola02.mp3",
 	"assets/sounds/special_sounds/viola03.mp3",
+	"assets/sounds/special_sounds/drum01.mp3",
 ];
 let p5specialSoundList = [];
 
@@ -74,7 +75,7 @@ let texts = [
 		text: "A number of  <span class='color-red'>social sciences</span> academic departments are concentrated in the Hall Building. ",
 	},
 	{
-		text: "Sir George Williams University, later to be known as Concordia University after their merger with Loyola College, <br />hosted many international students from all around the world. <br />The institution believed in its <span class='color-red'>diversity</span> and the power to bring young bright minded individuals together.",
+		text: "Sir George Williams University, later to be known as Concordia University after their merger with Loyola College, <br />hosted many international students from all around the world. <br />The institution believed in its <span class='color-red'>diversity</span> and the power to bring young bright-minded individuals together.",
 	},
 	{
 		text: "Among many of those, six West Indian students changed the history of this building in 1968.",
@@ -100,10 +101,34 @@ let texts = [
 		text: "Rawl Frederick, one of the accusers, wrote a poem about the injustices that he suffered:",
 	},
 	{
-		text: "They designate institutions, we disintegrate in infernos, They consummate animals that abort us, <br/>Nursing grounds for dysgenic beasts, Developing ghettoes/employing social workers to create Negroes. <br />Man-trap, I know your name, your face",
+		text: "They designate <span class='color-red'>institutions</span>, we disintegrate in infernos, They consummate animals that abort us, <br/>Nursing grounds for dysgenic beasts, Developing ghettoes/employing social workers to <span class='color-red'>create</span> Negroes. <br /><span class='color-red'>Man-trap</span>, I know your name, your face",
 		specialSound: 2,
-		buttonShowUpSpeed: 5500,
+		buttonShowUpSpeed: 6000,
 		nextLine: true,
+	},
+	{
+		text: "the complaints against Anderson of racial bias were denied by the university administration.",
+	},
+	{
+		text: "",
+		nextLine: true,
+	},
+	{
+		text: "",
+		newButtonText: "What happened next?",
+	},
+	{
+		text: "Students complaining about him were called <span class='color-red'>whiners</span>. Unhappy with their grades.",
+		newButtonText: "continue",
+		nextLine: true,
+	},
+	{
+		text: "The administration stalled the jury talks. They were hoping that the demands would die on their own. <br /> That their frustrations would turn into disappointment. <br />That their shouts would turn into <span class='color-red'>sighs</span>.",
+		nextLine: true,
+		newButtonText: "somethings never change...",
+	},
+	{
+		text: "",
 	},
 ];
 
@@ -114,6 +139,7 @@ let textCounter = 0;
 Description of preload
 */
 function preload() {
+	_mainSong = loadSound(mainSongAddress);
 	for (var i = 0; i < sounds.length; i++) {
 		p5songList[i] = loadSound(sounds[i]);
 	}
@@ -121,7 +147,6 @@ function preload() {
 	for (var i = 0; i < specialSoundsAddress.length; i++) {
 		p5specialSoundList[i] = loadSound(specialSoundsAddress[i]);
 	}
-	_mainSong = loadSound(mainSongAddress);
 }
 
 /**
@@ -189,6 +214,7 @@ function processNewText(newText) {
 		print("HELLO");
 
 		drawWindows(windowDrawCounter * windowHeightGaps);
+		p5specialSoundList[3].play();
 	}
 
 	if (newText.newButtonText != null) {

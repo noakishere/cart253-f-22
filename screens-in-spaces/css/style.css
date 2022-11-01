@@ -10,8 +10,9 @@ Also hides overflow.
 **********************************************/
 
 body {
-	background: url("https://cloudfront-us-east-1.images.arcpublishing.com/tgam/OKGSEXFMMNGNBM7NIL76DK3OVU.JPG");
-	background-size: cover;
+	background: url("https://i.cbc.ca/1.5001153.1549052522!/fileImage/httpImage/image.jpg_gen/derivatives/square_1180/sgw-protest.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
 	padding: 0;
 	margin: 0;
 	display: grid; /* Set up the grid and justify/align to center */
