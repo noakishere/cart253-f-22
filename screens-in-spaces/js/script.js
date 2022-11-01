@@ -30,13 +30,29 @@ let shouldDraw = true;
 /**
  * Sounds
  */
-let sounds = ["assets/sounds/bark.wav", "assets/sounds/pickupCoin.wav"];
+let sounds = [
+	"assets/sounds/sound_fx01.mp3",
+	"assets/sounds/sound_fx02.mp3",
+	"assets/sounds/sound_fx03.mp3",
+	"assets/sounds/sound_fx04.mp3",
+];
 let p5songList = [];
+
+let specialSoundsAddress = [
+	"assets/sounds/special_sounds/viola01.mp3",
+	"assets/sounds/special_sounds/viola02.mp3",
+	"assets/sounds/special_sounds/viola01.mp3",
+];
+let p5specialSoundList = [];
+
+let mainSongAddress = "assets/sounds/songs/main.mp3";
+let _mainSong = null;
 
 /**
  * DOM elements
  */
 let button;
+let startButton;
 let pTextContainer;
 
 /**
@@ -45,18 +61,20 @@ let pTextContainer;
 let texts = [
 	{
 		text: "Henry F. Hall building is located on De Maisonneuve Boulevard, <br />on Concordia's downtown Sir-George-Williams Campus.",
+		newButtonText: "continue",
 	},
 	{
 		text: "Its exterior is made of pre-fabricated, stressed concrete, <br />a feature of the <span class='color-red'>brutalist </span> movement, often associated with the French architect Le Corbusier.",
 	},
 	{
 		text: "A number of  <span class='color-red'>social sciences</span> academic departments are concentrated in the Hall Building. ",
-		// nextLine: true,
-		// newButtonText: "LOL",
-		// buttonShowUpSpeed: 1000,
+		nextLine: true,
+
+		buttonShowUpSpeed: 1000,
 	},
 	{
 		text: "Sir George Williams University, later to be known as Concordia University after their merger with Loyola College, <br />hosted many international students from all around the world. <br />It believed in its <span class='color-red'>diversity</span> and the power to bring young bright minded individuals together.",
+		specialSound: 2,
 	},
 	{
 		text: "",
@@ -73,6 +91,11 @@ function preload() {
 	for (var i = 0; i < sounds.length; i++) {
 		p5songList[i] = loadSound(sounds[i]);
 	}
+
+	for (var i = 0; i < specialSoundsAddress.length; i++) {
+		p5specialSoundList[i] = loadSound(specialSoundsAddress[i]);
+	}
+	_mainSong = loadSound(mainSongAddress);
 }
 
 /**
@@ -83,15 +106,7 @@ function setup() {
 	background("black");
 	// ruler();
 
-	pTextContainer = createP("").addClass("text-container");
-	pTextContainer.position(350, 450, "fixed");
-
-	drawWindows();
-
-	// for (var i = 0; i < cols; i++) {
-	// 	drawWindows(i * windowHeightGaps);
-	// }
-	createMyButton();
+	startUpMenu();
 }
 
 let setupDone = false;
@@ -115,6 +130,34 @@ function draw() {
 	// drawEyes();
 }
 
+function startUpMenu() {
+	startButton = createButton("intransigence").addClass("start-btn");
+	startButton.position(width / 2, height / 2);
+	startButton.mousePressed(() => {
+		startStory();
+		p5songList[0].play();
+	});
+	_mainSong.loop();
+}
+
+function startStory() {
+	pTextContainer = createP("").addClass("text-container");
+	pTextContainer.position(550, 550, "fixed");
+
+	drawWindows();
+
+	// for (var i = 0; i < cols; i++) {
+	// 	drawWindows(i * windowHeightGaps);
+	// }
+
+	createMyButton();
+	startButton.style("display", "none");
+}
+
+/**
+ * Processes each new text object and performs according to
+ * variables.
+ */
 function processNewText(newText) {
 	if (newText.nextLine && windowDrawCounter <= 17) {
 		print("HELLO");
@@ -126,9 +169,26 @@ function processNewText(newText) {
 		button.html(newText.newButtonText);
 	}
 
+	if (newText.specialSound != null) {
+		playSpecialSound(newText.specialSound);
+	}
+
 	updateText(newText.text, newText.buttonShowUpSpeed ?? undefined);
 }
 
+function playSoundEffect() {
+	let songRandom = floor(random(p5songList.length));
+	p5songList[songRandom].play();
+}
+
+function playSpecialSound(soundIndex) {
+	p5specialSoundList[soundIndex].play();
+}
+
+/**
+ * Draws each columns windows in 3 window units to imitate
+ * the building
+ */
 function drawWindows(col = 0) {
 	print(col);
 	x = 325;
@@ -143,16 +203,20 @@ function drawWindows(col = 0) {
 	windowDrawCounter++;
 }
 
+/**
+ * As it takes the parameters from each processed text object
+ * it updates the text field and invokes sound fx function.
+ */
 function updateText(sentence, buttonShowUpSpeed = 500) {
 	button.style("display", "none");
 
 	pTextContainer.html(sentence);
 
-	let songRandom = floor(random(p5songList.length));
-	p5songList[songRandom].play();
+	playSoundEffect();
 
 	textCounter++;
 
+	// once we've been through the array, it stops showing the continue button
 	if (textCounter < texts.length) {
 		window.setTimeout(() => {
 			button.style("display", "block");
@@ -161,7 +225,7 @@ function updateText(sentence, buttonShowUpSpeed = 500) {
 }
 
 function createMyButton() {
-	button = createButton("continue").addClass("myButton");
+	button = createButton("start").addClass("myButton");
 	button.position(500, 650);
 	button.mousePressed(() => {
 		let newText = texts[textCounter];
@@ -169,7 +233,7 @@ function createMyButton() {
 	});
 }
 
-/** TOOLS */
+/** PROD TOOLS */
 
 /*
  * have a clearer idea of the points on the canvas

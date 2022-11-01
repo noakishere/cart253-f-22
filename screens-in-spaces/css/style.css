@@ -34,6 +34,21 @@ canvas {
 	font-family: "Mukta", sans-serif;
 	color: rgb(180, 5, 5);
 	background-color: black;
+	letter-spacing: 2px;
+}
+
+.start-btn {
+	font-size: 22px;
+	font-family: "Mukta", sans-serif;
+	color: rgb(180, 5, 5);
+	background-color: black;
+	letter-spacing: 5px;
+}
+
+.start-btn:hover {
+	font-size: 25px;
+	-webkit-transition: all 1s;
+	transition: all 1s;
 }
 
 .color-red {
