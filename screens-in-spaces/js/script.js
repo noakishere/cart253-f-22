@@ -51,8 +51,12 @@ let texts = [
 	},
 	{
 		text: "A number of  <span class='color-red'>social sciences</span> academic departments are concentrated in the Hall Building. ",
-		nextLine: true,
-		newButtonText: "LOL",
+		// nextLine: true,
+		// newButtonText: "LOL",
+		// buttonShowUpSpeed: 1000,
+	},
+	{
+		text: "Sir George Williams University, later to be known as Concordia University after their merger with Loyola College, <br />hosted many international students from all around the world. <br />It believed in its <span class='color-red'>diversity</span> and the power to bring young bright minded individuals together.",
 	},
 	{
 		text: "",
@@ -77,10 +81,10 @@ Description of setup
 function setup() {
 	createCanvas(1080, 720);
 	background("black");
-	ruler();
+	// ruler();
 
 	pTextContainer = createP("").addClass("text-container");
-	pTextContainer.position(500, 450, "fixed");
+	pTextContainer.position(350, 450, "fixed");
 
 	drawWindows();
 
@@ -122,7 +126,7 @@ function processNewText(newText) {
 		button.html(newText.newButtonText);
 	}
 
-	updateText(newText.text, newText.newButtonText ?? undefined);
+	updateText(newText.text, newText.buttonShowUpSpeed ?? undefined);
 }
 
 function drawWindows(col = 0) {
@@ -139,7 +143,7 @@ function drawWindows(col = 0) {
 	windowDrawCounter++;
 }
 
-function updateText(sentence, buttonShowUpSpeed = 300) {
+function updateText(sentence, buttonShowUpSpeed = 500) {
 	button.style("display", "none");
 
 	pTextContainer.html(sentence);

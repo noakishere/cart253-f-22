@@ -10,6 +10,8 @@ Also hides overflow.
 **********************************************/
 
 body {
+	background: url("https://cloudfront-us-east-1.images.arcpublishing.com/tgam/OKGSEXFMMNGNBM7NIL76DK3OVU.JPG");
+	background-size: cover;
 	padding: 0;
 	margin: 0;
 	display: grid; /* Set up the grid and justify/align to center */
@@ -18,6 +20,9 @@ body {
 	height: 100vh; /* Body is the height of the viewport */
 	overflow: hidden; /* Hide anything that goes off the window size */
 	font-family: "Mukta", sans-serif;
+}
+canvas {
+	margin-top: 1%;
 }
 
 .text-container {
