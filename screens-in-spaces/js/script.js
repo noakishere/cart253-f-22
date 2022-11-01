@@ -43,6 +43,11 @@ let specialSoundsAddress = [
 	"assets/sounds/special_sounds/viola02.mp3",
 	"assets/sounds/special_sounds/viola03.mp3",
 	"assets/sounds/special_sounds/drum01.mp3",
+	"assets/sounds/special_sounds/viola04.mp3",
+	"assets/sounds/special_sounds/viola05.mp3",
+	"assets/sounds/special_sounds/viola06.mp3",
+	"assets/sounds/special_sounds/shenai01.mp3",
+	"assets/sounds/songs/final.mp3",
 ];
 let p5specialSoundList = [];
 
@@ -121,6 +126,7 @@ let texts = [
 		text: "Students complaining about him were called <span class='color-red'>whiners</span> and just unhappy with their grades.",
 		newButtonText: "continue",
 		nextLine: true,
+		specialSound: 6,
 	},
 	{
 		text: "The administration stalled the jury talks. They were hoping that the demands would die on their own. <br /> That their frustrations would turn into disappointment. <br />That their shouts would turn into <span class='color-red'>sighs</span>.",
@@ -157,6 +163,8 @@ let texts = [
 	{
 		text: "The police <span class='color-red'>raided</span> the lab. <br/> The university had enough of their <span class='color-red'>games</span>",
 		newButtonText: "continue",
+		specialSound: 7,
+		buttonShowUpSpeed: 6000,
 	},
 	{
 		text: "A fire broke down in the computer lab",
@@ -194,7 +202,7 @@ let texts = [
 		buttonShowUpSpeed: 1000,
 	},
 	{
-		text: "this work was done thanks to the many documentations [1] of this horrible incident. <br /> And it is our <span class='color-red'>homework</span> to acknowledge the sacrifices that our previous peers made, on the very <span class='color-red'>same</span> grounds that we walk on.",
+		text: "this work was done thanks to the many documentations [1] of this horrible incident. <br /> It is our <span class='color-red'>homework</span> to acknowledge the sacrifices that our previous peers made, on the very <span class='color-red'>same</span> grounds that we walk on.",
 		newButtonText: "[1] resources",
 		buttonShowUpSpeed: 1000,
 		finish: true,
@@ -308,6 +316,8 @@ function processNewText(newText) {
 				"_blank"
 			);
 		});
+		p5specialSoundList[3].play();
+		p5specialSoundList[8].play();
 	}
 
 	updateText(newText.text, newText.buttonShowUpSpeed ?? undefined);

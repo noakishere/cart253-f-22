@@ -1,3 +1,7 @@
-# Template p5 project
+# intransigence - An exercise on (Screens in Spaces)
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+Link to the [index](https://noakishere.github.io/cart253-f-22/screens-in-spaces/)
+
+Developed for CART-253
+
+intransigence: refusal to change one's view or to agree about something.
