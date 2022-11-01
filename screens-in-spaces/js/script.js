@@ -15,8 +15,8 @@ const cols = 10;
 let windowGaps = 10;
 const windowHeightGaps = 30;
 
-const windowWidth = 5;
-const windowHeight = 10;
+const buildingWindowWidth = 5;
+const buildingWindowHeight = 10;
 const windowCount = 3;
 
 let windowDrawCounter = 0;
@@ -132,7 +132,7 @@ let texts = [
 		buttonShowUpSpeed: 1000,
 	},
 	{
-		text: "Over 400 students, in an act of manifestation against the institution's horrible decision making, occupied the university's computer lab. <br/>The <span class='color-red'>ninth floor</span>.",
+		text: "Over 400 students, in an act of manifestation against the institution's horrible decision making, <br />occupied the university's computer lab. <br/>The <span class='color-red'>ninth floor</span>.",
 		newButtonText: "continue",
 	},
 	{
@@ -320,8 +320,13 @@ function drawWindows(col = 0) {
 	x = 325;
 	for (var i = 0; i < rows; i++) {
 		for (var j = 0; j < 3; j++) {
-			rect(x + windowWidth, col + 100, windowWidth, windowHeight);
-			x += windowWidth;
+			rect(
+				x + buildingWindowWidth,
+				col + 100,
+				buildingWindowWidth,
+				buildingWindowHeight
+			);
+			x += buildingWindowWidth;
 		}
 		x += windowGaps;
 	}
@@ -384,3 +389,12 @@ function ruler() {
 		}
 	}
 }
+
+// function windowResized() {
+// 	if (windowWidth < 1900) {
+// 		pTextContainer.position(550, 550, "fixed");
+// 	} else if (windowWidth < 1280) {
+// 		pTextContainer.position(300, 500, "fixed");
+// 		button.position(500, 650);
+// 	}
+// }
