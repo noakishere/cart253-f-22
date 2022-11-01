@@ -24,8 +24,6 @@ let windowDrawCounter = 0;
 let x = 325;
 let y = 0;
 
-let shouldDraw = true;
-
 /**
  * Sounds
  */
@@ -275,7 +273,7 @@ function processNewText(newText) {
 		print("HELLO");
 
 		drawWindows(windowDrawCounter * windowHeightGaps);
-		p5specialSoundList[3].play();
+		p5specialSoundList[3].play(); //drum sound
 	}
 
 	if (newText.newButtonText != null) {
@@ -297,8 +295,8 @@ function processNewText(newText) {
 				"_blank"
 			);
 		});
-		p5specialSoundList[3].play();
-		p5specialSoundList[8].play();
+		p5specialSoundList[3].play(); //drum sound
+		p5specialSoundList[8].play(); //final song
 	}
 
 	updateText(newText.text, newText.buttonShowUpSpeed ?? undefined);
@@ -334,6 +332,7 @@ function drawWindows(col = 0) {
 function drawRedWindow() {
 	fill("red");
 	drawWindows(30);
+	p5specialSoundList[3].play(); //drum sound
 	fill("white");
 }
 
