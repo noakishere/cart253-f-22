@@ -41,7 +41,7 @@ let p5songList = [];
 let specialSoundsAddress = [
 	"assets/sounds/special_sounds/viola01.mp3",
 	"assets/sounds/special_sounds/viola02.mp3",
-	"assets/sounds/special_sounds/viola01.mp3",
+	"assets/sounds/special_sounds/viola03.mp3",
 ];
 let p5specialSoundList = [];
 
@@ -57,6 +57,10 @@ let pTextContainer;
 
 /**
  * texts to be shown
+ * nextLine == draws another row of windows
+ * specialSound == refers to the specialSound db
+ * buttonShowUpSpeed == if more time is needed for the button to appear
+ * newButtonText == changes the button's text
  */
 let texts = [
 	{
@@ -68,16 +72,38 @@ let texts = [
 	},
 	{
 		text: "A number of  <span class='color-red'>social sciences</span> academic departments are concentrated in the Hall Building. ",
+	},
+	{
+		text: "Sir George Williams University, later to be known as Concordia University after their merger with Loyola College, <br />hosted many international students from all around the world. <br />The institution believed in its <span class='color-red'>diversity</span> and the power to bring young bright minded individuals together.",
+	},
+	{
+		text: "Among many of those, six West Indian students changed the history of this building in 1968.",
 		nextLine: true,
-
-		buttonShowUpSpeed: 1000,
+		buttonShowUpSpeed: 3500,
+		specialSound: 0,
+		newButtonText: "tell me how?",
 	},
 	{
-		text: "Sir George Williams University, later to be known as Concordia University after their merger with Loyola College, <br />hosted many international students from all around the world. <br />It believed in its <span class='color-red'>diversity</span> and the power to bring young bright minded individuals together.",
+		text: "Perry Anderson, a biology professor at the university, was accused of discrimination because of unfair grading.",
+		newButtonText: "continue",
+	},
+	{
+		text: "Specifically, towards the non-white students of the time.",
+	},
+	{
+		text: "The students believed that he would grade the same papers, which were copied word by word, on the basis of the author's color. <br />Black students would get a considerably lower grade on the same <span class='color-red'>paper</span> than their white peers.",
+	},
+	{
+		text: "And so, the issue was taken to the administration. Signed by the students affected by his actions.",
+	},
+	{
+		text: "Rawl Frederick, one of the accusers, wrote a poem about the injustices that he suffered:",
+	},
+	{
+		text: "They designate institutions, we disintegrate in infernos, They consummate animals that abort us, <br/>Nursing grounds for dysgenic beasts, Developing ghettoes/employing social workers to create Negroes. <br />Man-trap, I know your name, your face",
 		specialSound: 2,
-	},
-	{
-		text: "",
+		buttonShowUpSpeed: 5500,
+		nextLine: true,
 	},
 ];
 
