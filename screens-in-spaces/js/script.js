@@ -397,12 +397,3 @@ function ruler() {
 		}
 	}
 }
-
-// function windowResized() {
-// 	if (windowWidth < 1900) {
-// 		pTextContainer.position(550, 550, "fixed");
-// 	} else if (windowWidth < 1280) {
-// 		pTextContainer.position(300, 500, "fixed");
-// 		button.position(500, 650);
-// 	}
-// }
