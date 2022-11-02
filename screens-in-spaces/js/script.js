@@ -255,11 +255,24 @@ function startUpMenu() {
  */
 function startStory() {
 	pTextContainer = createP("").addClass("text-container");
-	pTextContainer.position(550, 550, "fixed");
 
 	drawWindows();
 
 	createMyButton();
+
+	// Responsive design
+	if (windowWidth < 1000) {
+		pTextContainer.position(200, 500, "fixed");
+	} else if (windowWidth < 1400) {
+		pTextContainer.position(250, 500, "fixed");
+	} else if (windowWidth < 1600) {
+		pTextContainer.position(350, 500, "fixed");
+		button.position(350, 650);
+	} else {
+		print("LOOOOL" + windowWidth);
+		pTextContainer.position(550, 550, "fixed");
+	}
+
 	startButton.style("display", "none");
 }
 
@@ -320,12 +333,7 @@ function drawWindows(col = 0) {
 	x = 325;
 	for (var i = 0; i < rows; i++) {
 		for (var j = 0; j < 3; j++) {
-			rect(
-				x + buildingWindowWidth,
-				col + 100,
-				buildingWindowWidth,
-				buildingWindowHeight
-			);
+			rect(x + buildingWindowWidth, col + 100, buildingWindowWidth, buildingWindowHeight);
 			x += buildingWindowWidth;
 		}
 		x += windowGaps;
