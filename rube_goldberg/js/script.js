@@ -52,7 +52,7 @@ function draw() {
 	// background(random(50, 190), 30, 100);
 	// background(190, 30, 100);
 	background(backgroundColor.r, backgroundColor.g, backgroundColor.b);
-	// ruler();
+	ruler();
 
 	noFill();
 	stroke(strokeColorMain.r, strokeColorMain.g, strokeColorMain.b);
@@ -187,6 +187,20 @@ function writeIntroText() {
 	if (_mainSong.currentTime() >= 47.55) {
 		writeText("sunrays", 55, 150, 0.4, { r: 255, g: 255, b: 255 });
 		drawTopLeftSunRays();
+	}
+
+	// Right side text
+	if (_mainSong.currentTime() >= 47.55) {
+		writeText("sun", 650, 500, 0.4, { r: 255, g: 255, b: 255 });
+	}
+	if (_mainSong.currentTime() >= 47.55) {
+		writeText("speeds", 650, 512, 0.4, { r: 255, g: 255, b: 255 });
+	}
+	if (_mainSong.currentTime() >= 47.55) {
+		writeText("1000 times", 650, 524, 0.4, { r: 255, g: 255, b: 255 });
+	}
+	if (_mainSong.currentTime() >= 47.55) {
+		writeText("to orchid", 662, 536, 0.4, { r: 255, g: 255, b: 255 });
 	}
 }
 

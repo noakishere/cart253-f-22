@@ -493,7 +493,6 @@
 		 * @param {!number} y2 The y-coordinate of the second point.
 		 */
 		line(id, duration, x1, y1, x2, y2) {
-			console.log("Can usee me?");
 			const instance = this.getOrCreateShapeInstance_(
 				id,
 				() => {

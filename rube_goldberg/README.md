@@ -9,5 +9,5 @@ This project specifically presents a digital poem, mixed with visuals and music.
 
 ## Libraries
 
-[p5.sound](https://p5js.org/reference/#/libraries/p5.sound)
-[p5.anims](https://wixette.github.io/p5.animS/)
+- [p5.sound](https://p5js.org/reference/#/libraries/p5.sound)
+- [p5.anims](https://wixette.github.io/p5.animS/)
