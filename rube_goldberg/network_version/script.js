@@ -25,6 +25,8 @@ let backgroundColor = {
 	b: 66,
 };
 
+let shouldStart = false;
+
 /**
 Description of preload
 */
@@ -38,7 +40,7 @@ Description of setup
 function setup() {
 	createCanvas(750, 750);
 
-	_mainSong.play();
+	// _mainSong.play();
 
 	// ruler();
 }
@@ -56,32 +58,43 @@ function draw() {
 	stroke(strokeColorMain.r, strokeColorMain.g, strokeColorMain.b);
 	strokeWeight(5);
 
-	writeIntroText();
-	drawSunRays();
+	if (shouldStart) {
+		writeIntroText();
+		drawSunRays();
 
-	if (_mainSong.currentTime() >= 10.6) {
-		animS.circle("c1", 80, 250, 120, 120, 100);
-	}
-	if (_mainSong.currentTime() > 12.2) {
-		animS.circle("c2", 120, 250, 220, 120, 100);
-		animS.circle("c3", 125, 265, 120, 120, 100);
-	}
+		if (_mainSong.currentTime() >= 10.6) {
+			animS.circle("c1", 80, 250, 120, 120, 100);
+		}
+		if (_mainSong.currentTime() > 12.2) {
+			animS.circle("c2", 120, 250, 220, 120, 100);
+			animS.circle("c3", 125, 265, 120, 120, 100);
+		}
 
-	if (_mainSong.currentTime() > 13) {
-		drawLine1();
-	}
+		if (_mainSong.currentTime() > 13) {
+			drawLine1();
+		}
 
-	if (_mainSong.currentTime() > 19) {
-		drawLine2();
-	}
+		if (_mainSong.currentTime() > 19) {
+			drawLine2();
+		}
 
-	if (_mainSong.currentTime() > 21) {
-		drawLine3();
+		if (_mainSong.currentTime() > 21) {
+			drawLine3();
+		}
+	} else {
+		writeText("please hold! we're awaiting the variable :)", 250, 250, 1, {
+			r: 255,
+			g: 255,
+			b: 255,
+		});
 	}
 }
 
 function keyPressed() {
-	animS.reset();
+	// animS.reset();/
+
+	shouldStart = true;
+	_mainSong.play();
 }
 
 function writeIntroText() {
