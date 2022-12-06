@@ -14,9 +14,9 @@ let _mainSong = null;
 
 // Variables
 let strokeColorMain = {
-	r: 111,
-	g: 0,
-	b: 255,
+	r: 54,
+	g: 187,
+	b: 206,
 };
 let sunStrokeColor = "#F38235";
 let backgroundColor = {
