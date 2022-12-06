@@ -81,6 +81,10 @@ function draw() {
 		if (_mainSong.currentTime() > 21) {
 			drawLine3();
 		}
+
+		if (!_mainSong.isPlaying()) {
+			shouldStart = false;
+		}
 	} else {
 		writeText("press any key to start..", 250, 250, 0.6, {
 			r: 255,
@@ -92,9 +96,10 @@ function draw() {
 
 function keyPressed() {
 	// animS.reset();/
-
-	shouldStart = true;
-	_mainSong.play();
+	if (!shouldStart) {
+		shouldStart = true;
+		_mainSong.play();
+	}
 }
 
 function writeIntroText() {
