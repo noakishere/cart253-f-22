@@ -52,7 +52,7 @@ function draw() {
 	// background(random(50, 190), 30, 100);
 	// background(190, 30, 100);
 	background(backgroundColor.r, backgroundColor.g, backgroundColor.b);
-	ruler();
+	// ruler();
 
 	noFill();
 	stroke(strokeColorMain.r, strokeColorMain.g, strokeColorMain.b);
