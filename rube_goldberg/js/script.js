@@ -67,7 +67,6 @@ function draw() {
 	}
 
 	if (_mainSong.currentTime() > 19) {
-		writeText("leaves", 100, 100);
 		drawLine2();
 	}
 
@@ -142,6 +141,30 @@ function writeIntroText() {
 	if (_mainSong.currentTime() >= 31.8) {
 		writeText("tropics", 350, 330, 0.4, { r: 255, g: 255, b: 255 });
 	}
+
+	// Top left text
+	if (_mainSong.currentTime() >= 42.2) {
+		writeText("sun", 50, 50, 0.4, { r: 255, g: 255, b: 255 });
+	}
+	if (_mainSong.currentTime() >= 43.11) {
+		writeText("wonders", 100, 50, 0.4, { r: 255, g: 255, b: 255 });
+	}
+	if (_mainSong.currentTime() >= 43.11) {
+		writeText("grows", 55, 65, 0.4, { r: 255, g: 255, b: 255 });
+	}
+	if (_mainSong.currentTime() >= 44) {
+		writeText("orchid", 80, 90, 0.4, { r: 255, g: 255, b: 255 });
+	}
+	if (_mainSong.currentTime() >= 46.22) {
+		writeText("runs", 50, 100, 0.4, { r: 255, g: 255, b: 255 });
+	}
+	if (_mainSong.currentTime() >= 46.22) {
+		writeText("through", 100, 130, 0.4, { r: 255, g: 255, b: 255 });
+	}
+	if (_mainSong.currentTime() >= 47.55) {
+		writeText("sunrays", 55, 150, 0.4, { r: 255, g: 255, b: 255 });
+		drawTopLeftSunRays();
+	}
 }
 
 function drawLine1() {
@@ -155,7 +178,6 @@ function drawLine1() {
 }
 
 function drawLine2() {
-	// fill("RED");
 	animS.shape("curve2", 150, [
 		[750, 600],
 		[500, 550, 450, 220, 100, 600],
@@ -209,6 +231,24 @@ function drawSunRays() {
 	if (_mainSong.currentTime() >= 36) {
 		animS.line("line8", 50, 410, 303, 423, 300);
 	}
+
+	// Default setup
+	strokeWeight(5);
+	stroke(strokeColorMain.r, strokeColorMain.g, strokeColorMain.b);
+}
+
+function drawTopLeftSunRays() {
+	strokeWeight(0.6);
+	stroke(sunStrokeColor);
+
+	animS.shape("leftSunRays1", 180, [
+		[45, 90],
+		[55, 85, 75, 70, 150, 55],
+	]);
+	animS.shape("leftSunRays2", 180, [
+		[40, 150],
+		[55, 145, 75, 130, 150, 90],
+	]);
 
 	// Default setup
 	strokeWeight(5);
